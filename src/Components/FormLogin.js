@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useForm } from 'react-hook-form';
+import {Redirect} from 'react-router-dom';
 
 function Form() {
     const {
@@ -15,8 +16,12 @@ function Form() {
               headers: {
                   'Content-Type':'application/x-www-form-urlencoded',
                 },
-              body: "email=" + data.email + "&" + "password=" + data.password
-          }).then((res) => res.json()).then((data) => console.log(data))
+              body: `email=${data.email}&password=${data.password}`
+          }).then((res) => res.json()).then((data) => {
+              console.log(data)
+              localStorage.setItem("mail", data['data']['email'])
+              return  <Redirect  to="/profile" />
+            })
       };
     return (
         <LoginForm onSubmit={handleSubmit(onSubmit)}>
@@ -31,8 +36,8 @@ function Form() {
                     <Check type="checkbox" id="rememberMe"></Check>
                     <Label htmlfor="rememberMe">Se souvenir de moi</Label>
                 </Div>
-                <SignUp>Vous n'avez pas de compte ? <LinkTo>S'inscrire</LinkTo></SignUp>
-                <ForgetPassword>Mot de passe oublié ?</ForgetPassword>
+                <SignUp>Vous n'avez pas de compte ? <LinkTo href="/signup">S'inscrire</LinkTo></SignUp>
+                <ForgetPassword href="/forget">Mot de passe oublié ?</ForgetPassword>
             </Container>
         </LoginForm>
     )
@@ -46,7 +51,7 @@ box-shadow: 0px 3px 7px 0px rgba(0,0,0,0.53);
 grid-area: 2 / 4 / 3 / 6;
 border-radius: 1.2rem;
 max-width: 80%;
-min-width: 70%;
+min-width: 450px;
 `
 const Container = styled.div`
 display: flex;

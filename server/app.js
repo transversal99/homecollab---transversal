@@ -2,7 +2,7 @@ require('./models-relation')
 const express = require('express')
 const app = express()
 
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: true, limit: 60000 }))
 
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*")
@@ -16,7 +16,7 @@ const port = 9000
 
 // To use controller
 app.use(require('./controllers/users'))
-app.use(require('./controllers/objectives'))
+app.use(require('./controllers/tasks'))
 app.use(require('./controllers/messages'))
 
 app.listen(port)

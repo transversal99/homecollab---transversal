@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import Form from '../Components/FormLogin'
+import FormSignup from '../Components/FormSignup'
 import Footer from '../Components/Footer.js'
 import GlobalFonts from '../fonts/fonts';
 
-function login() {
+function signup() {
     return (
         <>
             <Container>
@@ -13,7 +13,7 @@ function login() {
                     <Title>Home<SecondTitle>Collab</SecondTitle></Title>
                     <SubTitle>Quand le télétravail est en accord avec votre bien être</SubTitle>
                 </TextPage>
-                <Form />
+                <FormSignup />
             </Container>
             <Footer />
         </>
@@ -54,4 +54,4 @@ font-size: 2.5rem;
 font-family: 'Jost', sans-serif;
 `
 
-export default login
+export default signup
