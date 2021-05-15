@@ -1,8 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
 import { useForm } from 'react-hook-form';
+import { Redirect } from 'react-router';
 
 function FormSignup() {
+    const [isLogged, setIsLogged] = useState(false)
     const {
         register,
         handleSubmit,
@@ -14,9 +16,14 @@ function FormSignup() {
               method: 'POST',
               body: formData
           }).then((res) => res.json()).then((data) => {
-              console.log(data)
+              console.log(data.status)
+                localStorage.setItem("mail", data['data']['email'])
+                setIsLogged(true)
             })
-      };
+      }
+    if (isLogged === true) {
+        return  <Redirect  to="/profile" />
+    }
     return (
         <SignupForm onSubmit={handleSubmit(onSubmit)} id="haha">
             <Container>
@@ -46,7 +53,7 @@ function FormSignup() {
                 <Input placeholder="Mot de Passe" type="password" {...register('password', { required: true })} />
                 {errors.password && <Errors>Please enter a correct password.</Errors>}
                 <Btn type="submit" />
-                <SignUp>Vous avez déjà un compte ? <LinkTo href="/signup">Se connecter</LinkTo></SignUp>
+                <SignUp>Vous avez déjà un compte ? <LinkTo href="/login">Se connecter</LinkTo></SignUp>
             </Container>
         </SignupForm>
     )

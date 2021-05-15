@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useForm } from 'react-hook-form';
 import {Redirect} from 'react-router-dom';
 
 function Form() {
+    const [isLogged, setIsLogged] = useState(false)
     const {
         register,
         handleSubmit,
@@ -20,9 +21,12 @@ function Form() {
           }).then((res) => res.json()).then((data) => {
               console.log(data)
               localStorage.setItem("mail", data['data']['email'])
-              return  <Redirect  to="/profile" />
+              setIsLogged(true)
             })
-      };
+        };
+    if (isLogged === true) {
+        return  <Redirect  to="/profile" />
+    }
     return (
         <LoginForm onSubmit={handleSubmit(onSubmit)}>
             <Container>

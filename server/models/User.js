@@ -24,12 +24,12 @@ const User = sequelize.define('User', {
       max: 80
     },
     profile_img: {
-      type: DataTypes.BLOB('large'),
+      type: DataTypes.BLOB('long'),
       allowNull: false,
     },
     cover_img: {
-      type: DataTypes.BLOB('large'),
-      allowNull: false
+      type: DataTypes.BLOB('long'),
+      allowNull: false,
     },
     password: {
       type: DataTypes.STRING,

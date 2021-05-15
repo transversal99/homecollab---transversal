@@ -5,6 +5,8 @@ import profile from './Pages/profile';
 import forget from './Pages/forget'
 import './styles/app.css'
 import signup from './Pages/signup';
+import chat from './Pages/chat';
+import parameters from './Pages/parameters';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
         <Route path="/signup" exact component={signup} />
         <Route path="/login/forget" exact component={forget} />
         <Route path="/profile" exact component={profile} />
+        <Route path="/profile/chat" exact component={chat} />
+        <Route path="/profile/parameters" exact component={parameters} />
       </Switch>
     </Router>
   );

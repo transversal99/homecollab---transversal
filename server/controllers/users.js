@@ -106,4 +106,75 @@ router.post('/users/login', (req, res) => {
     }
 })
 
+router.put('/users/id/:id(\\d+)', (req, res) => {
+    let userEmail = req.body.email || undefined
+    let userFirstname = req.body.firstname || undefined
+    let userLastname = req.body.lastname || undefined
+    let userPhone = req.body.phone || undefined
+    let userPassword = req.body.password
+    let newPassword = req.body.newPassword || undefined
+    let confirmPassword = req.body.confirmPassword || undefined
+    // Solution 1
+    console.log(userEmail + " " + userFirstname + " " + userLastname)
+    console.log(req.body)
+    User.findOne({
+        where: {
+            id: req.params.id
+        }
+    }).then((user) => {
+        if(user != null) {
+            if (userEmail != undefined) {
+                user.update({
+                    email: userEmail
+                }).then((user) => {
+                    res.json({status:200, data: user})
+                })
+            }
+            if(userFirstname != undefined){
+                user.update({
+                    firstname: userFirstname
+                }).then((user) => {
+                    res.json({status:200, data: user})
+                })
+            }
+            if (userLastname != undefined) {
+                user.update({
+                    lastname: userLastname
+                }).then((user) => {
+                    res.json({status:200, data: user})
+                })
+            }
+            if (userPhone != undefined) {
+                user.update({
+                    phone: userPhone
+                }).then((user) => {
+                    res.json({status:200, data: user})
+                })
+            }
+            if (newPassword != undefined && newPassword === confirmPassword) {
+                const isValidPass = bcrypt.compareSync(userPassword, user.password);
+                if (isValidPass) {
+                    
+                    // Generate Salt
+                    const salt = bcrypt.genSaltSync(10);
+
+                    // Hash Password
+                    const hash = bcrypt.hashSync(newPassword, salt);
+                    user.update({
+                        password: hash
+                    }).then((user) => {
+                        res.json({status:200, data: user})
+                    })
+                }
+                else {
+                    res.json({status:401, data: "Le mot de Passe est incorrect"})
+                }
+            }
+
+        } else {
+            res.json({status:404, data: "Le user n'existe pas !"})
+        }
+    }
+)})
+
 module.exports = router
