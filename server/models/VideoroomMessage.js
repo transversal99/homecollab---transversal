@@ -18,25 +18,17 @@ const VideoroomMessage = sequelize.define('VideoroomMessage', {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    receiverId: {
+    senderId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    UserId: {
       type: DataTypes.INTEGER,
       allowNull: false
     }
   }, {
     indexes: [
       // Create a unique index on email
-  {
-    unique: true,
-    fields: ['VideoroomId']
-  },
-  {
-    unique: true,
-    fields: ['UserhasUserUserId']
-  },
-  {
-    unique: true,
-    fields: ['receiverId'] 
-  }
 ]
 });
 

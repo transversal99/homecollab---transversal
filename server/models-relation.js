@@ -10,7 +10,6 @@ const Channel = require('./models/Channel')
 const VideoroomMessage = require('./models/VideoroomMessage')
 const Playlist = require('./models/Playlist')
 const Song = require('./models/Song')
-const UserhasUser = require('./models/UserhasUser')
 const VideoroomHasUser = require('./models/VideoroomHasUser')
 
 // Différentes relations entres les tables de la dbb
@@ -25,9 +24,13 @@ Form.hasMany(Answer)
 Answer.belongsTo(Form)
 
 User.belongsToMany(User, {
-    through: UserhasUser,
-    as: 'receiver',
+    through: {
+        unique: false,
+        model: Message
+    },
+    as: 'receiver'
 })
+
 
 Videoroom.belongsTo(Channel)
 Channel.hasOne(Videoroom)
@@ -50,14 +53,15 @@ Song.belongsToMany(Playlist, {
     through: 'Playlist_has_song'
 })
 
-UserhasUser.hasMany(Message, {
-    foreignKey: 'receiverId'
+User.belongsToMany(User, {
+    through: {
+        unique: false,
+        model: VideoroomMessage
+    },
+    as: 'sender',
 })
-Message.belongsTo(UserhasUser)
 
-UserhasUser.hasMany(VideoroomMessage, {
-    foreignKey: 'receiverId'
-})
-VideoroomMessage.belongsTo(UserhasUser)
+VideoroomMessage.belongsTo(Videoroom)
+Videoroom.hasMany(Videoroom)
 
 sequelize.sync({alter:true})

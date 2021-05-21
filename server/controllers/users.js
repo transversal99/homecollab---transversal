@@ -4,14 +4,14 @@ const bcrypt = require('bcrypt');
 const upload = require('express-fileupload')
 
 const User = require('../models/User')
-const Task = require('../models/Task')
+const Task = require('../models/Task');
 
 // Rest API User Routes
 router.use(upload())
 // GET ALL USERS
 router.get('/users', (req, res) => {
     User.findAll({
-        include: [ Task ]
+        include: [Task]
     }).then((users) => {
         res.json({status: 200, data: users})
     })
@@ -154,7 +154,7 @@ router.put('/users/id/:id(\\d+)', (req, res) => {
             if (newPassword != undefined && newPassword === confirmPassword) {
                 const isValidPass = bcrypt.compareSync(userPassword, user.password);
                 if (isValidPass) {
-                    
+
                     // Generate Salt
                     const salt = bcrypt.genSaltSync(10);
 

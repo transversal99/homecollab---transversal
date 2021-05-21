@@ -2,12 +2,23 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../database')
 
 const Message = sequelize.define('Message', {
-    // Model attributes are defined here
-    id: {
+  id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+    allowNull: false
+  },
+    UserId: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: true,
-      allowNull: false
+      allowNull: false,
+      unique: false
+    }, 
+    receiverId: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      allowNull: false,
+      unique: false
     },
     message: {
       type: DataTypes.STRING,
@@ -15,14 +26,15 @@ const Message = sequelize.define('Message', {
     }
   }, {
     indexes: [
-      // Create a unique index on email
-  //   unique: true,
-  //   fields: ['UserHasUserSenderId']
-  // },
-  // {
-  //   unique: true,
-  //   fields: ['UserHasUserSenderId']
-  // } 
+        // Create a unique index on email
+    // { 
+    //   unique: false, 
+    //   fields: ['UserId']
+    // },
+    // {
+    //   unique: false,
+    //   fields: ['receiverId']
+    // }
 ]
 });
 

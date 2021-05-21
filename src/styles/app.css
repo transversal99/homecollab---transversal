@@ -3,3 +3,30 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+.rec.rec-pagination {
+    grid-area: 6 / 3 / 7 / 4;
+}
+
+.rec.rec-carousel-wrapper {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px; 
+}
+
+.rec.rec-carousel {
+    grid-area: 1 / 1 / 7 / 6;
+}
+
+.rec.rec-pagination {
+    grid-area: 6 / 3 / 7 / 4;
+    z-index: 99;
+}
+
+.rec.rec-slider-container {
+    margin: 0;
+}

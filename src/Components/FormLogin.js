@@ -19,9 +19,16 @@ function Form() {
                 },
               body: `email=${data.email}&password=${data.password}`
           }).then((res) => res.json()).then((data) => {
-              console.log(data)
-              localStorage.setItem("mail", data['data']['email'])
-              setIsLogged(true)
+              // eslint-disable-next-line
+              if (data.status == 200) {
+                  localStorage.setItem("mail", data['data']['email'])
+                  setTimeout(() => {
+                    setIsLogged(true)
+                  }, 1000); 
+              }
+              else {
+                alert(data.data)
+              }
             })
         };
     if (isLogged === true) {

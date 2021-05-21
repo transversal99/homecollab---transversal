@@ -43,6 +43,13 @@ const User = sequelize.define('User', {
     }
   }, {
     // Other model options go here
+    indexes : [
+        { 
+        unique: false, 
+        fields: ['id']
+      }
+
+    ]
 });
 
 module.exports = User

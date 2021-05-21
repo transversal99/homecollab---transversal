@@ -6,6 +6,7 @@ import ImageCover from '../Components/ImageCover'
 import ListModify from '../Components/ListModify'
 import UploadLogo from '../Assets/Groupe 51.png'
 import ButtonPassword from '../Components/ButtonPassword'
+import Logout from '../Components/Logout'
 
 function parameters() {
     return (
@@ -25,7 +26,7 @@ function parameters() {
                         <Item>Texte et image</Item>
                         <Item>Vidéo et voix</Item>
                         <Item>Notification</Item>
-                        <Logout>Déconnexion</Logout>
+                        <Logout />
                     </ListTwo>
                 </LeftBox>
                 <RightBox>
@@ -124,11 +125,6 @@ margin-bottom: 0.7rem;
 const Item = styled.li`
 font-size: 1.10rem;
 margin-bottom: 0.2rem;
-`
-const Logout = styled.li`
-font-size: 1.25rem;
-color: #E61616;
-margin-top: 5rem;
 `
 const BigTitle = styled.h1`
 font-size: 2.3rem;

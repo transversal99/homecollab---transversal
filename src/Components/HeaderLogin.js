@@ -9,12 +9,14 @@ function HeaderLogin() {
             <Nav>
                 <Img src={Logo} />
                 <List>
-                    <Item>Acceuil</Item>
-                    <Item>Conseils</Item>
-                    <Item>E-coffee</Item>
-                    <Item>Playlist</Item>
+                    <Item href="/">Acceuil</Item>
+                    <Item href="/">Conseils</Item>
+                    <Item href="/">E-coffee</Item>
+                    <Item href="/">Playlist</Item>
                     <Div>
-                        <ImagePic />
+                        <ToProfile href="/profile">
+                            <ImagePic />
+                        </ToProfile>
                     </Div>
                 </List>
             </Nav>
@@ -57,6 +59,10 @@ height: 100px;
 border-radius: 50%;
 overflow: hidden;
 min-width: 100px;
+`
+const ToProfile = styled.a`
+width: 100%;
+height: 100%;
 `
 
 export default HeaderLogin

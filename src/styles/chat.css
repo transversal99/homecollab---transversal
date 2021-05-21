@@ -1,0 +1,6 @@
+.search {
+    grid-area: 1 / 2 / 2 / 3;
+    width: 26px;
+    height: 26px;
+    z-index: 99;
+}
