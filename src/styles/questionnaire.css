@@ -1,0 +1,7 @@
+.sv_main input[type="button"], .sv_main button {
+    background-color: #163791 !important;
+}
+
+.sv_main .sv_body {
+    border-top: 2px solid #163791 !important;
+}

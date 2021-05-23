@@ -3,7 +3,7 @@ const sequelize = require('../database')
 
 const Task = sequelize.define('Task', {
     // Model attributes are defined here
-    name: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -11,12 +11,16 @@ const Task = sequelize.define('Task', {
       type: DataTypes.BOOLEAN,
       allowNull: false
     },
-    startDate: {
+    start: {
       type: DataTypes.DATE,
       allowNull: false
     },
-    endDate: {
+    end: {
       type: DataTypes.DATE,
+      allowNull: false
+    },
+    color: {
+      type: DataTypes.STRING,
       allowNull: false
     }
   }, {

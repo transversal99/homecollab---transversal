@@ -47,6 +47,11 @@ router.get('/users/email/:email', (req, res) => {
     })
 })
 
+router.post('/us', (req,res) => {
+    console.log(req.files)
+    res.json({status: 200})
+})
+
 // Create a new User
 router.post('/users', (req, res) => {
     console.log(req)

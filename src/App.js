@@ -7,6 +7,8 @@ import './styles/app.css'
 import signup from './Pages/signup';
 import chat from './Pages/chat';
 import parameters from './Pages/parameters';
+import firstarticles from './Pages/firstarticles';
+import articles from './Pages/articles';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Route path="/profile" exact component={profile} />
         <Route path="/profile/chat" exact component={chat} />
         <Route path="/profile/parameters" exact component={parameters} />
+        <Route path="/articles" exact component={articles} />
+        <Route path="/articles/1" exact component={firstarticles} />
       </Switch>
     </Router>
   );

@@ -1,0 +1,31 @@
+.fc.fc-media-screen.fc-direction-ltr.fc-theme-standard.fc-liquid-hack {
+    width: 100%;
+    height: 100%;
+}
+.fc-addEventButton-button.fc-button.fc-button-primary {
+    background-color: #163791;
+    border-radius: 1.875rem;
+    color: white;
+    padding: 0.4rem 2rem;
+    font-size: 1.25rem;
+}
+.fc-timegrid-col.fc-day.fc-day-mon.fc-day-future {
+    z-index: 1;
+    background-color: #89CE8B;
+}
+.fc-timegrid-col.fc-day.fc-day-tue.fc-day-future {
+    z-index: 1;
+    background-color: #1B7FB4;
+}
+.fc-timegrid-col.fc-day.fc-day-wed.fc-day-future {
+    z-index: 1;
+    background-color: #A86CF6;
+}
+.fc-timegrid-col.fc-day.fc-day-thu.fc-day-future {
+    z-index: 1;
+    background-color: #6E5B6B;
+}
+.fc-timegrid-col.fc-day.fc-day-fri.fc-day-future {
+    z-index: 1;
+    background-color: #EB8D21;
+}

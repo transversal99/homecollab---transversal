@@ -3,13 +3,12 @@ import Footer from '../Components/Footer'
 import HeaderLogin from '../Components/HeaderLogin'
 import styled from 'styled-components'
 import Cover from '../Components/Cover'
+import AgendaContainer from '../Components/AgendaContainer'
 import {FaCommentAlt} from 'react-icons/fa'
 import Param from '../Assets/Icon feather-settings.png'
 import ArticleLogo from '../Assets/Icon awesome-history.png'
 import MusicLogo from '../Assets/Icon awesome-music.png'
 import Chevron from '../Assets/Icon awesome-chevron-right.png'
-import AgendaLogo from '../Assets/Groupe 48.png'
-import QuestionnaireLogo from '../Assets/Groupe 49.png'
 import ImagePic from '../Components/ImagePic'
 
 function profile() {
@@ -42,16 +41,7 @@ function profile() {
                             </Div>
                         </BottomBox>
                     </Profile>
-                    <AgendaContainer>
-                        <Top>
-                            <ButtonF><Item src={AgendaLogo} />Agenda</ButtonF>
-                            <ButtonS><Item src={QuestionnaireLogo} />Questionnaire</ButtonS>
-                        </Top>
-                        <Agenda>
-                            <Task>Ajouter une tâche</Task>
-                            <Message>Bravo vous avez accompli tout vos objectif aujourd'hui !</Message>
-                        </Agenda>
-                    </AgendaContainer>
+                    <AgendaContainer />
                 </ProfileBloc>
             </Container>
             <Footer />
@@ -146,61 +136,6 @@ margin-right: 0.4rem;
 const Text = styled.p`
 font-size: 1.25rem;
 padding-right: 1rem;
-`
-const AgendaContainer = styled.div`
-display:flex;
-flex-direction: column;
-justify-content: space-between;
-align-items: center;
-grid-area: 1 / 2 / 4 / 5;
-`
-const Top = styled.div`
-display: flex;
-align-items: center;
-justify-content: center;
-position: relative;
-width: 50%;
-margin-top: 0.5rem;
-margin-bottom: 0.5rem;
-`
-const ButtonF = styled.button`
-background-color: #163791;
-border-radius: 0.5rem 0.1rem 0.1rem 0.5rem;
-color: white;
-width: 50%;
-padding: 0.4rem 0rem;
-border: 1px solid #163791;
-display: flex;
-align-items: center;
-justify-content: center;
-`
-const ButtonS = styled.button`
-justify-content: center;
-display: flex;
-align-items: center;
-background-color: #FFFFFF;
-border-radius: 0.1rem 0.5rem 0.5rem 0.1rem;
-color: black;
-width: 50%;
-padding: 0.4rem 0rem;
-border: 1px solid black;
-`
-const Agenda = styled.div`
-height: 400px;
-width: 100%;
-display:flex;
-align-items: center;
-`
-const Task = styled.button`
-background-color: #163791;
-border-radius: 1.875rem;
-color: white;
-padding: 0.4rem 2rem;
-font-size: 1.25rem;
-`
-const Message = styled.p`
-font-size: 1.25rem;
-color: black;
 `
 
 export default profile
