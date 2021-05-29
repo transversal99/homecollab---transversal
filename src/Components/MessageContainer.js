@@ -23,7 +23,6 @@ function MessageContainer() {
     let handleClick = (e) => {
         // setReceive(e.currentTarget.parentElement.id)
         localStorage.setItem('receiver', e.currentTarget.parentElement.id)
-        // console.log(receive)
         setReceiverPresent(true)
         fetchChatData(localStorage.getItem("receiver"))
     }
@@ -51,7 +50,6 @@ function MessageContainer() {
     useEffect(() => {
         const socket = socketIOClient(ENDPOINT);
         socket.on("MESSAGE-CREATED", data => {
-            console.log("MESSAGE-CREATED", data)
             setChat([...chat, data])
             fetchUserData()
         });
@@ -67,7 +65,6 @@ function MessageContainer() {
       } = useForm();
 
     const onSubmit = (data) =>{
-        console.log(data)
         let messageData = data.message
         let storedMail = localStorage.getItem("mail")
         fetch(`http://localhost:9000/users/email/${storedMail}`).then((data) => data.json())
@@ -118,26 +115,25 @@ function MessageContainer() {
             <RightBox>
                 {receiverPresent === false && <ScreenWhenNoMessage>
                     <FirstText>
-                        Vous n'avez cliquez sur aucune conversation
+                        Vous n'avez cliqué sur aucune conversation
                         <SubText>Veuillez cliquer sur une conversation, sinon vous pouvez en commencer une nouvelle</SubText>
                     </FirstText>
                     <Btn>Nouveau message</Btn>
                 </ScreenWhenNoMessage>}
                 {receiverPresent === true && 
                 <ScreenWhenMessageClicked>
-                    {chat.map((value, index) => {
-                        console.log("userId is", value.UserId)
-                        console.log("receiver ID", localStorage.getItem("receiver"))
-                        if (value.UserId === userId ) {
+                    {chat.map((value) => {
+                        // eslint-disable-next-line
+                        if (value.UserId == userId ) {
                             return(
-                                <User key={value.UserId}>
+                                <User key={value.id}>
                                     <Message id={value.UserId}>{value.message}</Message>
                                 </User>
                             )
                         }
                         else {
                             return(
-                                <UserSecond key={value.UserId}>
+                                <UserSecond key={value.id}>
                                     <MessageSecond id={value.UserId}>{value.message}</MessageSecond>
                                 </UserSecond>
                             )

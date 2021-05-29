@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 import React, {useState} from 'react'
 import styled from 'styled-components'
 import { useForm } from 'react-hook-form';
@@ -10,7 +12,6 @@ function BoxModify(props) {
         formState: { errors },
       } = useForm();
       const onSubmit = (datas) =>{
-          console.log(datas)
           let title = props.title
           if(localStorage.getItem("mail") !== null){
             let storedMail = localStorage.getItem("mail")

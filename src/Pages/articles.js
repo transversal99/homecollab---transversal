@@ -3,6 +3,7 @@ import Footer from '../Components/Footer'
 import HeaderLogin from '../Components/HeaderLogin'
 import styled from 'styled-components'
 import '../styles/css/style2.css'
+import Productivité from '../Assets/img/productivité.png'
 function articles() {
     return (
         <>
@@ -10,26 +11,26 @@ function articles() {
             <Container>
                 <h1>Articles</h1>
                 <h2>Catégories</h2>
-                <div class="cat">
-                    <div class="teletravail">
+                <div className="cat">
+                    <div className="teletravail">
                         <p>Télétravail</p>
                     </div>
-                    <div class="tips">
+                    <div className="tips">
                         <p>Tips</p>
                     </div>
-                    <div class="productivite">
+                    <div className="productivite">
                         <p>Productivité</p>
                     </div>
                 </div>
                 <div>
                     <h2>Dernier article publié</h2>
-                    <div>
-                        <img src="" alt="" />
+                    <Art href="/articles/1">
+                        <img src={Productivité} alt="Productivité" />
                         <div>
-                            <h3>Smh</h3>
-                            <p></p>
+                            <h3>Productivité : 5 lois à connaître pour être plus efficace au travail</h3>
+                            <p>Très connue, cette loi stipule que s’il est possible que quelque chose tourne mal, cela tournera forcément mal. Autrement dit, il faut toujours s’attendre au pire.</p>
                         </div>
-                    </div>
+                    </Art>
                 </div>
             </Container>
             <Footer />
@@ -42,6 +43,11 @@ flex-direction: column;
 align-items: center;
 margin-left: 200px;
 margin-right: 200px;
+`
+const Art = styled.a`
+text-decoration: none;
+color: black;
+padding: 1rem;
 `
 
 export default articles

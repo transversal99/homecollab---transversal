@@ -6,7 +6,6 @@ import interactionPlugin from '@fullcalendar/interaction'
 import '../styles/agenda.css'
 
 function AgendaCtrl({Tasks, setPopup}) {
-    // console.log(Tasks)
     return (
         <FullCalendar
             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
@@ -14,7 +13,6 @@ function AgendaCtrl({Tasks, setPopup}) {
             allDaySlot={false}
             events=
             {Tasks}
-            // {[{ id: '2', title: 'event 1', start: '2021-05-18T21:11:02', end: '2021-05-22T21:11:02.000Z', color: 'green'}]}
             headerToolbar={{
                 left: 'prev,next today',
                 center: 'title',

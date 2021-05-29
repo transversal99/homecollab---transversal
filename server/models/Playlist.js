@@ -1,4 +1,4 @@
-const { DataTypes, NOW } = require('sequelize');
+const { DataTypes } = require('sequelize');
 const sequelize = require('../database')
 
 const Playlist = sequelize.define('Playlist', {

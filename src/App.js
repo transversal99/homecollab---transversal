@@ -9,12 +9,20 @@ import chat from './Pages/chat';
 import parameters from './Pages/parameters';
 import firstarticles from './Pages/firstarticles';
 import articles from './Pages/articles';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [isUserAuthenticated, setIsUserAuthenticated] = useState(false)
+  useEffect(() => {
+    if(localStorage.getItem("mail") !== null){
+      setIsUserAuthenticated(true)
+  }
+  }, [])
   return (
     <Router>
       <Switch>
-        <Route path="/" exact component={Homepage} />
+        <Route path="/" exact component= {isUserAuthenticated ? Homepage : login} />
+        <Route path="/home" exact component={Homepage} />
         <Route path="/login" exact component={login} />
         <Route path="/signup" exact component={signup} />
         <Route path="/login/forget" exact component={forget} />

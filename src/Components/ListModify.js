@@ -33,7 +33,7 @@ function ListModify() {
             {box === 3 && <BoxModify title="email"/>}
             <ItemSecond><Phrase>Email: <Soan><FetchData content="email" /></Soan></Phrase>  <Lien data-content="email" onClick={(e) => handleModifying(e)}>Modifier</Lien></ItemSecond>
             {box === 4 && <BoxModify title="phone"/>}
-            <ItemSecond><Phrase>Téléphone: <Soan><FetchData content="phone" /></Soan></Phrase> <Lien data-content="phone" onClick={(e) => handleModifying(e)}>Modifier</Lien></ItemSecond>
+            <ItemSecond><Phrase>Téléphone: <Soan>+<FetchData content="phone" /></Soan></Phrase> <Lien data-content="phone" onClick={(e) => handleModifying(e)}>Modifier</Lien></ItemSecond>
         </>
     )
 }
